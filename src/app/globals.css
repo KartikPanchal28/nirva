@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-obsidian: #0E0E0E;
+  --color-alabaster: #F5F2EB;
+  --color-stone: #C8C2B8;
+  --color-gold: #B89B6A;
+  --color-ivory: #FAF8F4;
+  --color-charcoal: #171614;
+  --color-ink-muted: #6E685F;
+
+  --font-serif: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-sans: var(--font-jakarta), "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #F5F2EB;
+    color: #0E0E0E;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #F5F2EB;
+    color: #0E0E0E;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: #B89B6A;
+    color: #0E0E0E;
+  }
+}
+
+/* Subtle archival paper grain overlay */
+.paper-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.045'/%3E%3C/svg%3E");
+}
+
+/* Material finish textures for live label preview */
+.finish-cotton {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='cottonNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.15' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23cottonNoise)' opacity='0.18'/%3E%3C/svg%3E");
+}
+
+.finish-velvet {
+  background: radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.08), transparent 60%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(0, 0, 0, 0.05) 100%);
+}
+
+.finish-linen {
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(14, 14, 14, 0.055) 0px,
+      rgba(14, 14, 14, 0.055) 1px,
+      transparent 1px,
+      transparent 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(14, 14, 14, 0.055) 0px,
+      rgba(14, 14, 14, 0.055) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+}
+
+.finish-parchment {
+  background:
+    linear-gradient(125deg, rgba(184, 155, 106, 0.14) 0%, rgba(255, 255, 255, 0.06) 45%, rgba(184, 155, 106, 0.18) 100%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='parchmentNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23parchmentNoise)' opacity='0.09'/%3E%3C/svg%3E");
+}
+
+/* Custom thin scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F5F2EB;
+}
+::-webkit-scrollbar-thumb {
+  background: #C8C2B8;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B89B6A;
+}
